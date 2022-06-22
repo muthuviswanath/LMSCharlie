@@ -1,0 +1,31 @@
+﻿model LendRequestListViewModel
+
+<h2>ISSUE OF BOOKS</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+        <th style="vertical-align: middle;">User Id</th>
+        <th style="vertical-align: middle;">User Name</th>
+        <th style="vertical-align: middle;">Book Id</th>
+        <th style="vertical-align: middle;">Book Name</th>
+        <th style="vertical-align: middle;">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.LendRequestBook.LendRequestBookItems)
+        {
+            <tr>
+                <td class=" text-center" style="vertical-align: middle;">@item.UserInfo.UserId</td>
+                <td class=" text-center" style="vertical-align: middle;">@item.UserInfo.UserName</td>
+                <td class=" text-center" style="vertical-align: middle;">@item.BookInfo.BookId</td>
+                <td class=" text-center" style="vertical-align: middle;">@item.BookInfo.BookName</td>
+                <td class=" text-center" style="vertical-align: middle;">@item.BookInfo.BookName</td>
+                <td class="text-center">
+                    <a class="btn btn-primary" asp-controller="LendRequest" asp-action="LendApprove">Approve</a>
+                    <a class="btn btn-primary" asp-controller="LendRequest" asp-action="LendReject">Reject</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+ </table>
